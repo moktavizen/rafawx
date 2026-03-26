@@ -1,11 +1,11 @@
 {
-  "name": "vanilla-js-template",
+  "name": "rafawx",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://moktavizen.github.io/vanilla-js-template",
+  "homepage": "http://moktavizen.github.io/rafawx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moktavizen/vanilla-js-template.git"
+    "url": "git+https://github.com/moktavizen/rafawx.git"
   },
   "type": "module",
   "scripts": {
