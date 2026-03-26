@@ -1,32 +1,61 @@
-#app {
-  height: 100svh;
+:root {
+  --page-max-width: 1280px;
+  --clr-surface: #ffffff;
+  --clr-surface-high: #f6f7f9;
+  --clr-surface-highest: #c1c3c8;
+  --clr-on-surface: #17181c;
+}
 
-  display: grid;
-  place-items: center;
-
+body {
   font-family: sans-serif;
+  color: var(--clr-on-surface);
+}
+
+header {
+  background: var(--clr-surface-high);
+  border-bottom: 1px solid var(--clr-surface-highest);
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px 6px;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
 }
 
-h1 {
-  font-size: 2.5rem;
+.logo {
   font-weight: 700;
+  font-size: 1.75rem;
+  text-wrap: nowrap;
+
+  justify-self: start;
+
+  padding: 3px 10px;
 }
 
-button {
-  background-color: #efefef;
-  padding: 3px 12px;
-  border: 2px solid #767676;
-  border-radius: 8px;
+.search-bar {
+  background: var(--clr-surface);
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--clr-surface-highest);
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.7;
-  }
+  text-align: center;
+}
+
+.github-link {
+  padding: 10px;
+
+  justify-self: end;
+}
+
+.github-link > .icon {
+  height: 28px;
+  fill: var(--clr-on-surface);
 }
