@@ -4,7 +4,9 @@
   --clr-surface-high: #f6f7f9;
   --clr-surface-highest: #c1c3c8;
   --clr-on-surface: #17181c;
+  --clr-on-surface-variant: #a9a9a9;
   --clr-precipitation: #4fc2f7;
+  --clr-temperature-unit: #f53d7d;
 }
 
 body {
@@ -48,12 +50,58 @@ nav {
 }
 
 .search-bar {
+  display: flex;
+}
+
+.search-input {
+  flex: 1;
+
   background: var(--clr-surface);
   padding: 8px 16px;
-  border-radius: 100px;
+  padding-right: 14px;
+  border-radius: 100px 0 0 100px;
   border: 1px solid var(--clr-surface-highest);
+  border-right-width: 0;
+}
 
-  text-align: center;
+.divider {
+  background: var(--clr-surface);
+  padding: 8px 0;
+  border-top: 1px solid var(--clr-surface-highest);
+  border-bottom: 1px solid var(--clr-surface-highest);
+
+  &::before {
+    content: "";
+    display: block;
+    background: var(--clr-on-surface-variant);
+    height: 100%;
+    width: 1px;
+  }
+}
+
+.unit-toggle {
+  background: var(--clr-surface);
+  color: var(--clr-on-surface-variant);
+  padding: 8px 16px;
+  padding-left: 14px;
+  border-radius: 0 100px 100px 0;
+  border: 1px solid var(--clr-surface-highest);
+  border-left-width: 0;
+  text-wrap: nowrap;
+
+  &:hover {
+    cursor: pointer;
+
+    & > span:not(.selected-unit) {
+      text-decoration: solid underline var(--clr-temperature-unit) 2px;
+      text-underline-offset: 2px;
+    }
+  }
+}
+
+.selected-unit {
+  color: var(--clr-temperature-unit);
+  font-weight: 700;
 }
 
 .github-link {
