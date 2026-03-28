@@ -1,6 +1,7 @@
 import "./styles/reset.css";
+import "./styles/font.css";
 import "./styles/style.css";
-import { setupNextHours } from "./nextHours";
+import { setupSearch } from "./search";
 
 // document.querySelector("#app").innerHTML = `
 // <header>
@@ -26,4 +27,5 @@ import { setupNextHours } from "./nextHours";
 // </div>
 // `;
 //
-// setupNextHours(document.querySelector("next-hours"));
+
+setupSearch(document.querySelector("#search"));
