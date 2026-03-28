@@ -5,12 +5,12 @@
   --clr-surface-highest: #c1c3c8;
   --clr-on-surface: #17181c;
   --clr-on-surface-variant: #a9a9a9;
-  --clr-precipitation: #4fc2f7;
-  --clr-temperature-unit: #f53d7d;
+  --clr-logo-accent: #fcc11a;
+  --clr-temperature-unit: #f44336;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Figtree", sans-serif;
   color: var(--clr-on-surface);
 }
 
@@ -27,7 +27,8 @@ header {
 
 nav {
   display: grid;
-  grid-template-columns: 1fr minmax(322px, 1.5fr) 1fr;
+  /* Measured manually after setting the width of forecast elements */
+  grid-template-columns: 1fr minmax(260px, 1.5fr) 1fr;
   align-items: center;
   gap: 16px;
 
@@ -47,6 +48,10 @@ nav {
   justify-self: start;
 
   padding: 3px 10px;
+}
+
+.logo-accent {
+  color: var(--clr-logo-accent);
 }
 
 .search-bar {
@@ -124,7 +129,8 @@ nav {
 
 .weather {
   display: grid;
-  grid-template-columns: 1fr minmax(322px, 1.5fr) 1fr;
+  /* Measured manually after setting the width of forecast elements */
+  grid-template-columns: 1fr minmax(260px, 1.5fr) 1fr;
   gap: 16px;
 
   max-height: 500px;
@@ -154,19 +160,24 @@ nav {
 
   display: flex;
   justify-content: space-between;
-
   padding: 8px;
 
   & > div {
-    width: 80px;
+    text-wrap: nowrap;
   }
 
+  /* The widths is manually measured after setting the font */
+  /* So all forecast align vertically */
+  /* Measured using the widest character combination that make sense */
+  & > div:first-child {
+    width: 78px;
+  }
   & > div:nth-child(2) {
-    margin-left: 24px;
+    width: 72px;
+    margin-left: -4px;
   }
-
   & > div:last-child {
-    text-align: right;
+    width: 57px;
   }
 }
 
@@ -174,7 +185,7 @@ nav {
   width: 1px;
   height: 100%;
   background: var(--clr-surface-highest);
-  margin-left: 40px;
+  margin-left: 46px;
 
   &:last-child {
     display: none;
@@ -226,7 +237,8 @@ nav {
   font-size: 5rem;
   line-height: 1;
 
-  margin-left: 36px;
+  /* Manually measured from the degree symbol, after setting the font */
+  margin-left: 30px;
 }
 
 .condition {
@@ -234,6 +246,8 @@ nav {
 }
 
 .loading {
+  font-weight: 500;
+
   display: grid;
   place-items: center;
 }
