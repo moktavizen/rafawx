@@ -27,7 +27,7 @@ header {
 
 nav {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr minmax(322px, 1.5fr) 1fr;
   align-items: center;
   gap: 16px;
 
@@ -64,7 +64,7 @@ nav {
   border-right-width: 0;
 }
 
-.divider {
+.unit-divider {
   background: var(--clr-surface);
   padding: 8px 0;
   border-top: 1px solid var(--clr-surface-highest);
@@ -108,11 +108,11 @@ nav {
   padding: 10px;
 
   justify-self: end;
-}
 
-.github-link > .icon {
-  height: 28px;
-  fill: var(--clr-on-surface);
+  & > .icon {
+    height: 28px;
+    fill: var(--clr-on-surface);
+  }
 }
 
 .main {
@@ -124,7 +124,7 @@ nav {
 
 .weather {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr minmax(322px, 1.5fr) 1fr;
   gap: 16px;
 
   max-height: 500px;
@@ -138,6 +138,99 @@ nav {
   background: var(--clr-surface-high);
   border: 1px solid var(--clr-surface-highest);
   border-radius: 20px;
+}
+
+.list {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.forecast {
+  font-size: 1.125rem;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 8px;
+
+  & > div {
+    width: 80px;
+  }
+
+  & > div:nth-child(2) {
+    margin-left: 24px;
+  }
+
+  & > div:last-child {
+    text-align: right;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 100%;
+  background: var(--clr-surface-highest);
+  margin-left: 40px;
+
+  &:last-child {
+    display: none;
+  }
+}
+
+.main-weather {
+  display: grid;
+  grid-template-areas: "stack";
+  place-items: center;
+  overflow: hidden;
+
+  text-align: center;
+  font-weight: 700;
+}
+
+.weather-bg {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  background: center / cover no-repeat;
+  background-image: url("../assets/cloudy.gif");
+}
+
+.bg-filter {
+  grid-area: stack;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  background: var(--clr-on-surface);
+  opacity: 0.3;
+}
+
+.weather-info {
+  grid-area: stack;
+  z-index: 2;
+
+  color: var(--clr-surface);
+}
+
+.location {
+  font-size: 2rem;
+}
+
+.temperature {
+  font-size: 5rem;
+  line-height: 1;
+
+  margin-left: 36px;
+}
+
+.condition {
+  font-size: 1.5rem;
 }
 
 .loading {
