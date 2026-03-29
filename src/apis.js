@@ -14,7 +14,7 @@ function extractWeather(weather) {
   const nextDays = weather.days.slice(0, 7);
 
   return {
-    address: weather.address,
+    address: weather.resolvedAddress,
     now: now,
     nextHours: nextHours,
     nextDays: nextDays,
