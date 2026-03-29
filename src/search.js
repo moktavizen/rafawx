@@ -5,7 +5,7 @@ async function searchLocationWeather(location) {
   toggleLoadings();
 
   const weather = await fetchWeather(location);
-  const gifUrl = await fetchGif(`${weather.now.icon}-sky`);
+  const gifUrl = await fetchGif(weather.now.icon);
   console.log(weather);
   console.log(gifUrl);
 
@@ -13,7 +13,7 @@ async function searchLocationWeather(location) {
 
   renderNextHours(weather.nextHours);
   renderNextDays(weather.nextDays);
-  renderNow(gifUrl);
+  renderNow(gifUrl, weather.address, weather.now);
 }
 
 function setupSearch(inputEl) {

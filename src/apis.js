@@ -46,9 +46,10 @@ async function fetchWeather(location) {
 }
 
 async function fetchGif(searchStr) {
-  console.log(searchStr);
+  const searchParam = searchStr + "-sky";
+  console.log(searchParam);
   const GIPHY_KEY = "eydeltGdzzaOcLjID6BA86tbMcqrr0Zh";
-  const queryUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${encodeURIComponent(searchStr)}`;
+  const queryUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${encodeURIComponent(searchParam)}`;
 
   try {
     const response = await fetch(queryUrl);
@@ -57,7 +58,7 @@ async function fetchGif(searchStr) {
     return gif.data.images.original.url;
   } catch (err) {
     console.error(err);
-    return "";
+    return "./assets/cloudy.gif";
   }
 }
 

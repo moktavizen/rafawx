@@ -67,18 +67,25 @@ function renderNextDays(nextDays) {
   }
 }
 
-function renderNow(gifUrl) {
+function renderNow(gifUrl, address, { temp, conditions }) {
   document.querySelector("#now").innerHTML = `
   <div id="weather-bg" class="weather-bg"></div>
   <div class="bg-filter"></div>
   <div class="weather-info">
-    <div class="location">London</div>
-    <div class="temperature">29°</div>
-    <div class="condition">Cloudy</div>
+    <div id="location" class="location">London</div>
+    <div id="temperature" class="temperature">29°</div>
+    <div id="condition" class="condition">Cloudy</div>
   </div>
   `;
 
+  const formattedAddress = address.split(",")[0];
+  const temperature = Math.round(temp);
+  // const precipProb = Math.fround(precipprob);
+
   document.querySelector("#weather-bg").style.backgroundImage = `url(${gifUrl})`;
+  document.querySelector("#location").textContent = formattedAddress;
+  document.querySelector("#temperature").textContent = temperature + "°";
+  document.querySelector("#condition").textContent = conditions;
 }
 
 export { toggleLoadings, renderNextHours, renderNextDays, renderNow };
