@@ -34,13 +34,13 @@ function renderNextHours(nextHours) {
 
   let isFirstLoop = true;
   for (const hour of nextHours) {
-    const hourForecast = {
+    const formattedForecast = {
       time: isFirstLoop ? "Now" : hour.datetime.slice(0, -3),
       precipProb: Math.round(hour.precipprob),
       temperature: Math.round(hour.temp),
     };
 
-    renderForecast(nextHoursDiv, "🕓", hourForecast);
+    renderForecast(nextHoursDiv, "🕓", formattedForecast);
 
     isFirstLoop = false;
   }
@@ -53,7 +53,7 @@ function renderNextDays(nextDays) {
 
   let isFirstLoop = true;
   for (const day of nextDays) {
-    const dayForecast = {
+    const formattedForecast = {
       time: isFirstLoop
         ? "Today"
         : new Date(day.datetime).toLocaleDateString("en-US", { weekday: "short" }),
@@ -61,7 +61,7 @@ function renderNextDays(nextDays) {
       temperature: Math.round(day.temp),
     };
 
-    renderForecast(nextDaysDiv, "🗓️", dayForecast);
+    renderForecast(nextDaysDiv, "🗓️", formattedForecast);
 
     isFirstLoop = false;
   }
