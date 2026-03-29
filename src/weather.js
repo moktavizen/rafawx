@@ -67,4 +67,18 @@ function renderNextDays(nextDays) {
   }
 }
 
-export { toggleLoadings, renderNextHours, renderNextDays };
+function renderNow(gifUrl) {
+  document.querySelector("#now").innerHTML = `
+  <div id="weather-bg" class="weather-bg"></div>
+  <div class="bg-filter"></div>
+  <div class="weather-info">
+    <div class="location">London</div>
+    <div class="temperature">29°</div>
+    <div class="condition">Cloudy</div>
+  </div>
+  `;
+
+  document.querySelector("#weather-bg").style.backgroundImage = `url(${gifUrl})`;
+}
+
+export { toggleLoadings, renderNextHours, renderNextDays, renderNow };

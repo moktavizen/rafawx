@@ -45,16 +45,16 @@ async function fetchWeather(location) {
   }
 }
 
-async function fetchGif() {
-  // eydeltGdzzaOcLjID6BA86tbMcqrr0Zh
-  const GIPHY_KEY = "";
-  const queryUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${searchParam}`;
+async function fetchGif(searchStr) {
+  console.log(searchStr);
+  const GIPHY_KEY = "eydeltGdzzaOcLjID6BA86tbMcqrr0Zh";
+  const queryUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${encodeURIComponent(searchStr)}`;
 
   try {
     const response = await fetch(queryUrl);
     if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
-    const gifs = response.json();
-    return gifs;
+    const gif = await response.json();
+    return gif.data.images.original.url;
   } catch (err) {
     console.error(err);
     return "";
