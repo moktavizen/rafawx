@@ -15,7 +15,7 @@ async function searchLocationWeather(location) {
 }
 
 function setupSearch(inputEl) {
-  searchLocationWeather("Greenwich");
+  searchLocationWeather("Miami");
 
   inputEl.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
