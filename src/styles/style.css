@@ -225,6 +225,7 @@ nav {
   grid-area: stack;
   z-index: 2;
 
+  font-size: 1.125rem;
   color: var(--clr-surface);
 
   /* From `text-shadow-lg` https://tailwindcss.com/docs/text-shadow */
@@ -246,8 +247,20 @@ nav {
   margin-left: 30px;
 }
 
+.temp-unit {
+  font-size: 1.5rem;
+  vertical-align: 36px;
+  margin-left: 4px;
+}
+
 .condition {
   font-size: 1.5rem;
+}
+
+.other-metrics {
+  display: flex;
+  justify-content: center;
+  gap: 1.125rem;
 }
 
 .loading {

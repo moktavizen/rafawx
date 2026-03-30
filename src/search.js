@@ -6,8 +6,6 @@ async function searchLocationWeather(location) {
 
   const weather = await fetchWeather(location);
   const gifUrl = await fetchGif(weather.now.icon);
-  console.log(weather);
-  console.log(gifUrl);
 
   toggleLoadings();
 
@@ -17,7 +15,7 @@ async function searchLocationWeather(location) {
 }
 
 function setupSearch(inputEl) {
-  searchLocationWeather("London");
+  searchLocationWeather("Greenwich");
 
   inputEl.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {

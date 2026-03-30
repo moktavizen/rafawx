@@ -42,6 +42,7 @@ async function fetchWeather(location) {
     console.log(rawWeather);
 
     const weather = extractWeather(rawWeather);
+    console.log(weather);
     return weather;
   } catch (err) {
     console.error(err);
@@ -59,7 +60,9 @@ async function fetchGif(searchStr) {
     const response = await fetch(queryUrl);
     if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
     const gif = await response.json();
-    return gif.data.images.original.url;
+    const gifUrl = gif.data.images.original.url;
+    console.log(gifUrl);
+    return gifUrl;
   } catch (err) {
     console.error(err);
     return "./assets/cloudy.gif";
