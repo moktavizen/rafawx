@@ -1,17 +1,21 @@
 function extractWeather(weather) {
   if (!weather) return;
 
-  const currHour = new Date().getUTCHours() + weather.tzoffset;
-  const nextHours = [...weather.days[0].hours, ...weather.days[1].hours].slice(
-    currHour,
-    currHour + 7,
+  const nextDays = weather.days.slice(0, 7);
+
+  const currHour = Number(
+    new Date()
+      .toLocaleTimeString("en-US", {
+        timeZone: weather.timezone,
+        hourCycle: "h23",
+      })
+      .split(":")[0],
   );
+  const nextHours = [...nextDays[0].hours, ...nextDays[1].hours].slice(currHour, currHour + 7);
 
   // `weather.currentConditions` is often older than current hour.
   // We replace it with weather from current hour so its more accurate and consistent.
   const now = nextHours[0];
-
-  const nextDays = weather.days.slice(0, 7);
 
   return {
     address: weather.resolvedAddress,
