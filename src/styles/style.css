@@ -85,6 +85,7 @@ nav {
 }
 
 .unit-toggle {
+  width: 66px;
   background: var(--clr-surface);
   color: var(--clr-on-surface-variant);
   padding: 8px 16px;

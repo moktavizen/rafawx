@@ -15,8 +15,8 @@ document.querySelector("#app").innerHTML = `
         placeholder="🔍 Search location (city is more accurate)"
       />
       <div class="unit-divider"></div>
-      <button class="unit-toggle">
-        <span class="selected-unit">C</span> / <span>F</span>
+      <button id="unit-toggle" class="unit-toggle">
+        <span id="celcius" class="selected-unit">C</span> / <span id="fahrenheit">F</span>
       </button>
     </div>
     <a class="github-link" href="https://github.com/moktavizen/rafawx" target="_blank">

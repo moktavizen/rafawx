@@ -65,7 +65,7 @@ function renderNextDays(nextDays) {
   }
 }
 
-function renderNow(gifUrl, address, { temp, precipprob, windspeed, conditions }) {
+function renderNow(gifUrl, address, unit, { temp, precipprob, windspeed, conditions }) {
   const nowDiv = document.querySelector("#now");
   nowDiv.classList = "card main-weather";
 
@@ -74,7 +74,7 @@ function renderNow(gifUrl, address, { temp, precipprob, windspeed, conditions })
   <div class="bg-filter"></div>
   <div class="weather-info">
     <div class="location">${address.split(",")[0]}</div>
-    <div class="temperature">${Math.round(temp)}<span class="temp-unit">℃</span></div>
+    <div class="temperature">${Math.round(temp)}<span class="temp-unit">${unit === "celcius" ? "℃" : "℉"}</span></div>
     <div class="condition">${conditions}</div>
     <div class="other-metrics">
       <span >💧 ${precipprob}%</span>

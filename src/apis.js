@@ -25,11 +25,11 @@ function extractWeather(weather) {
   };
 }
 
-async function fetchWeather(location) {
+async function fetchWeather(location, unit) {
   const VISUAL_CROSSING_KEY = "4PD92DUXQVGHDSV7Q3YAAF24J";
   const queryUrl =
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(location)}?` +
-    "unitGroup=metric" +
+    `unitGroup=${unit === "celcius" ? "metric" : "us"}` +
     "&include=days%2Chours" +
     `&key=${VISUAL_CROSSING_KEY}` +
     "&contentType=json";
