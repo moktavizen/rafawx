@@ -39,7 +39,6 @@ async function fetchWeather(location) {
     if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
 
     const rawWeather = await response.json();
-    console.log(rawWeather);
 
     const weather = extractWeather(rawWeather);
     console.log(weather);
@@ -52,7 +51,6 @@ async function fetchWeather(location) {
 
 async function fetchGif(searchStr) {
   const searchParam = searchStr + "-sky";
-  console.log(searchParam);
   const GIPHY_KEY = "eydeltGdzzaOcLjID6BA86tbMcqrr0Zh";
   const queryUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${encodeURIComponent(searchParam)}`;
 
