@@ -163,21 +163,21 @@ nav {
   justify-content: space-between;
   padding: 8px;
 
-  & > div {
+  & > span {
     text-wrap: nowrap;
   }
 
   /* The widths is manually measured after setting the font */
   /* So all forecast align vertically */
   /* Measured using the widest character combination that make sense */
-  & > div:first-child {
+  & > span:first-child {
     width: 78px;
   }
-  & > div:nth-child(2) {
+  & > span:nth-child(2) {
     width: 72px;
     margin-left: -4px;
   }
-  & > div:last-child {
+  & > span:last-child {
     width: 57px;
   }
 }

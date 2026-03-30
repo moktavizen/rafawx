@@ -14,9 +14,7 @@ function renderForecast(parentEl, timeIcon, { time, precipProb, temperature }) {
   const forecastDiv = document.createElement("div");
   forecastDiv.classList = "forecast";
   forecastDiv.innerHTML = `
-  <div>${timeIcon} ${time}</div>
-  <div>💧 ${precipProb}%</div>
-  <div>🌡️ ${temperature}°</div>
+  <span>${timeIcon} ${time}</span><span>💧 ${precipProb}%</span><span>🌡️ ${temperature}°</span>
   `;
   parentEl.appendChild(forecastDiv);
 
