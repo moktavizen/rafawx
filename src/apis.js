@@ -66,7 +66,7 @@ async function fetchGif(searchStr) {
     return gifUrl;
   } catch (err) {
     console.error(err);
-    return "./assets/cloudy.gif";
+    return "./assets/images/cloudy.gif";
   }
 }
 
