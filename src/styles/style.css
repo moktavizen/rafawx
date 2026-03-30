@@ -218,7 +218,7 @@ nav {
   z-index: 1;
 
   background: var(--clr-on-surface);
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
 .weather-info {
@@ -228,11 +228,17 @@ nav {
   font-size: 1.125rem;
   color: var(--clr-surface);
 
-  /* From `text-shadow-lg` https://tailwindcss.com/docs/text-shadow */
-  text-shadow:
-    0px 1px 2px rgb(0 0 0 / 0.1),
-    0px 3px 2px rgb(0 0 0 / 0.1),
-    0px 4px 8px rgb(0 0 0 / 0.1);
+  background: rgb(0 0 0 / 0.2);
+  backdrop-filter: blur(32px);
+  padding: 16px 20px;
+  border-radius: 16px;
+  outline: 0.5px solid rgb(255 255 255 / 0.15);
+  outline-offset: -2px;
+
+  /* From `shadow-xl` https://tailwindcss.com/docs/box-shadow */
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .location {
