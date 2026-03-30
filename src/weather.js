@@ -1,15 +1,13 @@
-function toggleLoading(el) {
-  el.classList.toggle("loading");
+function renderLoading(el, msg) {
+  el.classList.add("loading");
 
-  if (el.classList.contains("loading")) {
-    el.innerHTML = "Loading...";
-  }
+  el.innerHTML = msg;
 }
 
-function toggleLoadings() {
-  toggleLoading(document.querySelector("#next-hours"));
-  toggleLoading(document.querySelector("#now"));
-  toggleLoading(document.querySelector("#next-days"));
+function renderLoadingCards(msg) {
+  renderLoading(document.querySelector("#next-hours"), msg);
+  renderLoading(document.querySelector("#now"), msg);
+  renderLoading(document.querySelector("#next-days"), msg);
 }
 
 function renderForecast(parentEl, timeIcon, { time, precipProb, temperature }) {
@@ -29,7 +27,7 @@ function renderForecast(parentEl, timeIcon, { time, precipProb, temperature }) {
 
 function renderNextHours(nextHours) {
   const nextHoursDiv = document.querySelector("#next-hours");
-
+  nextHoursDiv.classList = "card list";
   nextHoursDiv.innerHTML = "";
 
   let isFirstLoop = true;
@@ -48,7 +46,7 @@ function renderNextHours(nextHours) {
 
 function renderNextDays(nextDays) {
   const nextDaysDiv = document.querySelector("#next-days");
-
+  nextDaysDiv.classList = "card list";
   nextDaysDiv.innerHTML = "";
 
   let isFirstLoop = true;
@@ -68,7 +66,10 @@ function renderNextDays(nextDays) {
 }
 
 function renderNow(gifUrl, address, { temp, precipprob, windspeed, conditions }) {
-  document.querySelector("#now").innerHTML = `
+  const nowDiv = document.querySelector("#now");
+  nowDiv.classList = "card main-weather";
+
+  nowDiv.innerHTML = `
   <div class="weather-bg" style="background-image: url(${gifUrl});"></div>
   <div class="bg-filter"></div>
   <div class="weather-info">
@@ -83,4 +84,4 @@ function renderNow(gifUrl, address, { temp, precipprob, windspeed, conditions })
   `;
 }
 
-export { toggleLoadings, renderNextHours, renderNextDays, renderNow };
+export { renderLoadingCards, renderNextHours, renderNextDays, renderNow };

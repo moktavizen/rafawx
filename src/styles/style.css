@@ -272,7 +272,5 @@ nav {
 
 .loading {
   font-weight: 500;
-
-  display: grid;
-  place-items: center;
+  text-align: center;
 }

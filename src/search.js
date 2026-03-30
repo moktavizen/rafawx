@@ -1,17 +1,18 @@
 import { fetchGif, fetchWeather } from "./apis.js";
-import { renderNextDays, renderNextHours, renderNow, toggleLoadings } from "./weather.js";
+import { renderNextDays, renderNextHours, renderNow, renderLoadingCards } from "./weather.js";
 
 async function searchLocationWeather(location) {
-  toggleLoadings();
+  try {
+    renderLoadingCards("Loading...");
+    const weather = await fetchWeather(location);
+    const gifUrl = await fetchGif(weather.now.icon);
 
-  const weather = await fetchWeather(location);
-  const gifUrl = await fetchGif(weather.now.icon);
-
-  toggleLoadings();
-
-  renderNextHours(weather.nextHours);
-  renderNextDays(weather.nextDays);
-  renderNow(gifUrl, weather.address, weather.now);
+    renderNextHours(weather.nextHours);
+    renderNextDays(weather.nextDays);
+    renderNow(gifUrl, weather.address, weather.now);
+  } catch {
+    renderLoadingCards(`No result for "${location}"<br />Try longer description`);
+  }
 }
 
 function setupSearch(inputEl) {
