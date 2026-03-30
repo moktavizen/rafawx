@@ -59,7 +59,10 @@ async function fetchGif(searchStr) {
   try {
     const response = await fetch(queryUrl);
     if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
+
     const gif = await response.json();
+    if (gif.data.length === 0) throw new Error(`Empty data: ${JSON.stringify(gifData)}`);
+
     const gifUrl = gif.data.images.original.url;
     console.log(gifUrl);
     return gifUrl;
