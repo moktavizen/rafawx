@@ -41,7 +41,6 @@ async function fetchWeather(location, unit) {
     const rawWeather = await response.json();
 
     const weather = extractWeather(rawWeather);
-    console.log(weather);
     return weather;
   } catch (err) {
     console.error(err);
@@ -62,7 +61,6 @@ async function fetchGif(searchStr) {
     if (gif.data.length === 0) throw new Error(`Empty data: ${JSON.stringify(gifData)}`);
 
     const gifUrl = gif.data.images.original.url;
-    console.log(gifUrl);
     return gifUrl;
   } catch (err) {
     console.error(err);
