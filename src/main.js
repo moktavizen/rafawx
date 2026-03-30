@@ -12,7 +12,7 @@ document.querySelector("#app").innerHTML = `
         id="search"
         class="search-input"
         type="text"
-        placeholder="🔍 Search location (city is more accurate)"
+        placeholder="🔍 Search city or address"
       />
       <div class="unit-divider"></div>
       <button id="unit-toggle" class="unit-toggle">
